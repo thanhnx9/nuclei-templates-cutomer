@@ -1,0 +1,37 @@
+info:
+  id: github-workflows-disclosure
+  name: GitHub workflows disclosure
+  description: Detects the presence of GitHub workflows files that contain sensitive information, such as secret keys or access tokens.
+  author: OpenAI
+  severity: Medium
+  classification:
+    tags:
+      - github
+      - security
+      - workflows
+      - disclosure
+
+  reference:
+    - https://docs.github.com/en/actions/reference/encrypted-secrets#using-encrypted-secrets-in-a-workflow
+
+  matcher-condition: or
+
+  requests:
+      method: GET
+      path:
+        - "/.github/workflows/ci.yml"
+        - "/.github/workflows/deploy.yml"
+        - "/.github/workflows/release.yml"
+        - "/.github/workflows/config.yml"
+        - "/.github/workflows/config.yml"
+      description: Accessing a workflow file in the .github/workflows directory
+
+  matchers:
+    - pattern: "env:"
+      type: body
+      description:  keyword is used in a workflow file, which can contain sensitive information.
+
+  response:
+    - status:
+        - 200
+      description: Successful response status

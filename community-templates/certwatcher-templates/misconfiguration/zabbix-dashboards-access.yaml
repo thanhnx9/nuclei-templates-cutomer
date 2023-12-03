@@ -1,0 +1,36 @@
+info:
+  id: zabbix-dashboards-access
+  name: Zabbix Dashboards Access
+  author: OpenAI
+  description: Zabbix guest login credentials were successful.
+  severity: Medium
+  classification:
+    country: any
+    tags:
+      - zabbix
+      - dashboards
+      - unauthorized access
+      - authentication bypass
+      - misconfiguration
+
+  matcher-condition: and
+
+  requests:
+      method: GET
+      path: 
+        - "/zabbix/zabbix.php?action=dashboard.list"
+      description: Attempt to access Zabbix dashboards
+
+  matchers:
+    - pattern: "Create dashboard"
+      type: body
+      description: Zabbix login page found in response body
+
+    - pattern: "Zabbix SIA"
+      type: body
+      description: Zabbix dashboard found in response body
+
+  response:
+    - status:
+        - 200
+      description: Successful response status

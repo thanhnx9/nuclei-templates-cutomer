@@ -1,0 +1,33 @@
+info:
+  id: ansible-config-disclosure
+  name: Ansible Config Disclosure - Detect
+  author: drfabiocastro
+  description: Template to detect exposure of Ansible configuration files
+  severity: High
+  classification:
+    country: any
+    tags:
+      - ansible
+      - configuration
+      - disclosure
+
+  matcher-condition: and
+
+  requests:
+      method: GET
+      path:
+        - "/ansible.cfg"
+        - "/ansible/ansible.cfg"
+      description: Example requests to trigger detection
+
+  matchers:
+    - pattern: '[defaults]'
+    - pattern: '[inventory]'
+    - pattern: 'Ansible'
+      type: body
+      description: Ansible configuration file found in response body
+
+  response:
+    - status:
+      - 200
+      description: Successful response status

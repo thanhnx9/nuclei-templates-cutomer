@@ -1,0 +1,36 @@
+info:
+  id: circleci-config
+  name: CircleCI Config Exposure - Detect
+  author: drfabiocastro
+  description: Template to detect CircleCI configuration file exposure
+  severity: Medium
+  classification:
+    country: any
+    tags:
+      - circleci
+      - configuration
+      - exposure
+
+  matcher-condition: and
+
+  requests:
+    method: GET
+    path:
+      - "/.circleci/config.yml"
+    description: Example request to trigger detection
+
+  matchers:
+    - pattern: "version"
+    - pattern: "environment"
+    - pattern: "jobs"
+    - pattern: "steps"
+    - pattern: "CircleCI"
+      type: body
+      description: CircleCI configuration file found in response body
+
+  response:
+    - status:
+      - 200
+      - 401
+      - 403
+      description: Successful response status or authentication required

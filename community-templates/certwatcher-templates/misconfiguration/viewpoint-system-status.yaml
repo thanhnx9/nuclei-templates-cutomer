@@ -1,0 +1,30 @@
+info:
+  id: viewpoint-system-status
+  name: ViewPoint System Status - Detect
+  author: OpenAI
+  description: Template to detect the system status page of ViewPoint monitoring software
+  severity: Low
+  classification:
+    country: any
+    tags:
+      - viewpoint
+      - monitoring
+      - system status
+
+  matcher-condition: and
+
+  requests:
+      method: GET
+      path:
+        - "/system_status"
+      description: Attempt to access the ViewPoint system status page
+
+  matchers:
+    - pattern: "<title>ViewPoint System Status</title>"
+      type: body
+      description: ViewPoint system status page detected in the response
+
+  response:
+    - status:
+        - 200
+      description: Successful response status

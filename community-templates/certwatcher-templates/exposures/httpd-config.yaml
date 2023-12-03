@@ -1,0 +1,37 @@
+info:
+  id: httpd-config
+  name: HTTPD Config - Detect
+  author: drfabiocastro
+  description: Template to detect HTTPD configuration files exposure
+  severity: High
+  classification:
+    country: any
+    tags:
+      - httpd
+      - configuration
+      - exposure
+
+  matcher-condition: and
+
+  requests:
+    method: GET
+    path:
+      - "/httpd.conf"
+      - "/apache2.conf"
+      - "/nginx.conf"
+      - "/nginx.conf.default"
+    description: Example request to trigger detection
+
+  matchers:
+    - pattern: "ServerRoot"
+    - pattern: "DocumentRoot"
+    - pattern: "DirectoryIndex"
+    - pattern: "Options"
+      type: body
+      description: HTTPD configuration file found in response body
+
+  response:
+    - status:
+      - 200
+      - 401
+      - 403

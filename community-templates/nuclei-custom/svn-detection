@@ -1,0 +1,29 @@
+id: hidden-directory-detection
+
+info:
+  name: Hidden Directory SVN Detection
+  author: szybnev
+  severity: info
+  description: Detects hidden folders such as .git, .svn, and others.
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/.git/"
+      - "{{BaseURL}}/.svn/"
+      - "{{BaseURL}}/.hg/"
+      # Add other directories you wish to check
+
+    matchers:
+      - type: word
+        part: body
+        words:
+          - "ref: refs/"
+          - "<title>Index of /"
+          - "<h1>Index of /"
+        condition: or
+
+      - type: status
+        status:
+          - 200
+          - 403

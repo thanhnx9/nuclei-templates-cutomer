@@ -1,0 +1,30 @@
+info:
+  id: wamp-server-configuration
+  name: WAMP Server Configuration - Detect
+  author: OpenAI
+  description: Template to detect common misconfigurations in a WAMP (Windows, Apache, MySQL, PHP) server environment
+  severity: Medium
+  classification:
+    country: any
+    tags:
+      - wamp
+      - server configuration
+      - misconfiguration
+
+  matcher-condition: or
+
+  requests:
+      method: GET
+      path:
+        - "/"
+      description: Attempt to access the server root
+
+  matchers:
+    - pattern: 'b\\ServerRoot \"C:/wamp64/www\"\\'
+      type: body
+      description: Server root path detected in the response
+
+  response:
+    - status:
+        - 200
+      description: Successful response status
