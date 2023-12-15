@@ -1,1 +1,0 @@
-# Nuclei Templates Collection
