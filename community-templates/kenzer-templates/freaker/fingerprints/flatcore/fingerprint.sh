@@ -1,1 +1,0 @@
-nuclei -t signatures.yaml -l $1 -duc -silent -o $2

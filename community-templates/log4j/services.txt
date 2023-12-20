@@ -1,4 +1,0 @@
-ftp
-smb
-ssh
-smtp

@@ -1,4 +1,0 @@
-argparse
-requests
-lxml
-colorama
