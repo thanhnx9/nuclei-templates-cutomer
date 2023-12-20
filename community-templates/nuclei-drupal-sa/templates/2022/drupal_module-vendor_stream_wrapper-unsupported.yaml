@@ -1,7 +1,7 @@
 
-id: drupal_module-vendor_stream_wrapper-unsupported
+id: drupal-module-vendor-stream-wrapper-unsupported
 info:
-  name: drupal_module-vendor_stream_wrapper-unsupported
+  name: drupal-module-vendor-stream-wrapper-unsupported
   author: Bishopfox
   severity: medium
   description: "The security team is marking this project unsupported. There is a known security issue with the project that has not been fixed by the maintainer. If you would like to maintain this project, please read: https://www.drupal.org/node/251466#procedure---own-project---unsupported"
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 15∕25 AC:Basic/A:User/CI:Some/II:Some/E:Proof/TD:All"
     vulnerability: "unsupported"
-    fofa-query: "/sites/all/modules/vendor_stream_wrapper/"
-    google-query: "inurl:'/sites/all/modules/vendor_stream_wrapper/"
+    fofa-query: "/sites/all/modules/vendor-stream-wrapper/"
+    google-query: "inurl:'/sites/all/modules/vendor-stream-wrapper/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/vendor_stream_wrapper/vendor_stream_wrapper.info"
+      - "{{BaseURL}}/sites/all/modules/vendor-stream-wrapper/vendor-stream-wrapper.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'vendor_stream_wrapper'
+          - 'vendor-stream-wrapper'
         part: body
 
     extractors:
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '<= 99.x-99.99')
+         - compare-versions(version, '<= 99.x-99.99')

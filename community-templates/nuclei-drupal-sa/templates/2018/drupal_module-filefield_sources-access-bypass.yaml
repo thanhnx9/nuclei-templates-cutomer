@@ -1,7 +1,7 @@
 
-id: drupal_module-filefield_sources-access-bypass
+id: drupal-module-filefield-sources-access-bypass
 info:
-  name: drupal_module-filefield_sources-access-bypass
+  name: drupal-module-filefield-sources-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to upload files to fields via several sources. The module doesnt sufficiently handle access control under the scenario of the autocomplete path of reference sources."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 12∕25 AC:Complex/A:None/CI:Some/II:None/E:Theoretical/TD:All"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/filefield_sources/"
-    google-query: "inurl:'/sites/all/modules/filefield_sources/"
+    fofa-query: "/sites/all/modules/filefield-sources/"
+    google-query: "inurl:'/sites/all/modules/filefield-sources/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/filefield_sources/filefield_sources.info"
+      - "{{BaseURL}}/sites/all/modules/filefield-sources/filefield-sources.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'filefield_sources'
+          - 'filefield-sources'
         part: body
 
     extractors:
@@ -48,11 +48,11 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-1.10')
-         - compare_versions(version, '7.x-1.9')
-         - compare_versions(version, '7.x-1.8')
-         - compare_versions(version, '7.x-1.7')
-         - compare_versions(version, '7.x-1.6')
-         - compare_versions(version, '7.x-1.5')
-         - compare_versions(version, '7.x-1.4')
-         - compare_versions(version, '7.x-1.3')
+         - compare-versions(version, '7.x-1.10')
+         - compare-versions(version, '7.x-1.9')
+         - compare-versions(version, '7.x-1.8')
+         - compare-versions(version, '7.x-1.7')
+         - compare-versions(version, '7.x-1.6')
+         - compare-versions(version, '7.x-1.5')
+         - compare-versions(version, '7.x-1.4')
+         - compare-versions(version, '7.x-1.3')

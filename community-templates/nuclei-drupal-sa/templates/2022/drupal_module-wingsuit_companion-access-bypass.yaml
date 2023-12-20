@@ -1,7 +1,7 @@
 
-id: drupal_module-wingsuit_companion-access-bypass
+id: drupal-module-wingsuit-companion-access-bypass
 info:
-  name: drupal_module-wingsuit_companion-access-bypass
+  name: drupal-module-wingsuit-companion-access-bypass
   author: Bishopfox
   severity: medium
   description: "The Wingsuit module enables site builders to build UI Patterns (and|or) Twig Components with Storybook and use them without any mapping code in Drupal. The module doesnt have an access check for the admin form allowing an attacker to view and modify the Wingsuit configuration."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 16∕25 AC:Basic/A:None/CI:Some/II:Some/E:Theoretical/TD:All"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/wingsuit_companion/"
-    google-query: "inurl:'/sites/all/modules/wingsuit_companion/"
+    fofa-query: "/sites/all/modules/wingsuit-companion/"
+    google-query: "inurl:'/sites/all/modules/wingsuit-companion/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/wingsuit_companion/wingsuit_companion.info"
+      - "{{BaseURL}}/sites/all/modules/wingsuit-companion/wingsuit-companion.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'wingsuit_companion'
+          - 'wingsuit-companion'
         part: body
 
     extractors:
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.0')

@@ -1,7 +1,7 @@
 
-id: drupal_module-easy_breadcrumb-cross-site-scripting
+id: drupal-module-easy-breadcrumb-cross-site-scripting
 info:
-  name: drupal_module-easy_breadcrumb-cross-site-scripting
+  name: drupal-module-easy-breadcrumb-cross-site-scripting
   author: Bishopfox
   severity: medium
   description: "This module enables you to use the current URL (path alias) and the current pages title to automatically extract the breadcrumbs segments and its respective links then show them as breadcrumbs on your website. The module doesnt sufficiently sanitize editor input in certain circumstances leading to a Cross Site Scripting (XSS) vulnerability. This vulnerability requires the user have administer Easy Breadcrumb settings permission."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 13∕25 AC:Basic/A:Admin/CI:Some/II:Some/E:Theoretical/TD:All"
     vulnerability: "cross-site-scripting"
-    fofa-query: "/sites/all/modules/easy_breadcrumb/"
-    google-query: "inurl:'/sites/all/modules/easy_breadcrumb/"
+    fofa-query: "/sites/all/modules/easy-breadcrumb/"
+    google-query: "inurl:'/sites/all/modules/easy-breadcrumb/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/easy_breadcrumb/easy_breadcrumb.info"
+      - "{{BaseURL}}/sites/all/modules/easy-breadcrumb/easy-breadcrumb.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'easy_breadcrumb'
+          - 'easy-breadcrumb'
         part: body
 
     extractors:
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '<= 1.13.0')
+         - compare-versions(version, '<= 1.13.0')

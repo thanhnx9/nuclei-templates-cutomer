@@ -1,7 +1,7 @@
 
-id: drupal_module-focal_point-cross-site-scripting
+id: drupal-module-focal-point-cross-site-scripting
 info:
-  name: drupal_module-focal_point-cross-site-scripting
+  name: drupal-module-focal-point-cross-site-scripting
   author: Bishopfox
   severity: medium
   description: "This module enables a privileged user to specify the important part of an image for the purposes of cropping.   The module doesnt sufficiently sanitize certain form element attributes when the focal point widget is displayed on a form.   This vulnerability is mitigated by the fact that an attacker must have the ability to generate markup (e.g. with a field that accepts filtered html) AND they must have permission to edit a node or entity whose add/edit form contains the focal point widget."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 13∕25 AC:Complex/A:User/CI:Some/II:Some/E:Theoretical/TD:All"
     vulnerability: "cross-site-scripting"
-    fofa-query: "/sites/all/modules/focal_point/"
-    google-query: "inurl:'/sites/all/modules/focal_point/"
+    fofa-query: "/sites/all/modules/focal-point/"
+    google-query: "inurl:'/sites/all/modules/focal-point/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/focal_point/focal_point.info"
+      - "{{BaseURL}}/sites/all/modules/focal-point/focal-point.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'focal_point'
+          - 'focal-point'
         part: body
 
     extractors:
@@ -48,5 +48,5 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-1.1')
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '7.x-1.1')
+         - compare-versions(version, '7.x-1.0')

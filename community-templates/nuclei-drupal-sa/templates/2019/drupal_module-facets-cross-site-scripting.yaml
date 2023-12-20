@@ -1,7 +1,7 @@
 
-id: drupal_module-facets-cross-site-scripting
+id: drupal-module-facets-cross-site-scripting
 info:
-  name: drupal_module-facets-cross-site-scripting
+  name: drupal-module-facets-cross-site-scripting
   author: Bishopfox
   severity: medium
   description: "This module enables you to create facet-filters for results of a search query and exposes them as blocks The module doesnt sufficiently escape HTML under the scenario leading to a Cross Site Scripting (XSS) vulnerability. This vulnerability is mitigated by two factors. First, an attacker must have a way to insert results in the dataset that is exposed as a facet before this can happen. The permission to inject malicious strings depends on the sites search configuration but could be available to any user who can create content in a site. Second, the site must be using the Javascript-based dropdown widget."
@@ -14,7 +14,7 @@ info:
     google-query: "inurl:'/sites/all/modules/facets/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -48,6 +48,6 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.2')
-         - compare_versions(version, '8.x-1.1')
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.2')
+         - compare-versions(version, '8.x-1.1')
+         - compare-versions(version, '8.x-1.0')

@@ -1,7 +1,7 @@
 
-id: drupal_module-services_sso_client-cross-site-scripting
+id: drupal-module-services-sso-client-cross-site-scripting
 info:
-  name: drupal_module-services_sso_client-cross-site-scripting
+  name: drupal-module-services-sso-client-cross-site-scripting
   author: Bishopfox
   severity: medium
   description: "This module allows users of a remote Services-enabled Drupal site to sign on to a second site with their credentials. The module does not sanitize information from the request before displaying it, thereby exposing a cross-site scripting vulnerability."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 16∕25 AC:Basic/A:None/CI:Some/II:Some/E:Theoretical/TD:All"
     vulnerability: "cross-site-scripting"
-    fofa-query: "/sites/all/modules/services_sso_client/"
-    google-query: "inurl:'/sites/all/modules/services_sso_client/"
+    fofa-query: "/sites/all/modules/services-sso-client/"
+    google-query: "inurl:'/sites/all/modules/services-sso-client/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/services_sso_client/services_sso_client.info"
+      - "{{BaseURL}}/sites/all/modules/services-sso-client/services-sso-client.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'services_sso_client'
+          - 'services-sso-client'
         part: body
 
     extractors:
@@ -48,9 +48,9 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-1.5')
-         - compare_versions(version, '7.x-1.4')
-         - compare_versions(version, '7.x-1.3')
-         - compare_versions(version, '7.x-1.2')
-         - compare_versions(version, '7.x-1.1')
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '7.x-1.5')
+         - compare-versions(version, '7.x-1.4')
+         - compare-versions(version, '7.x-1.3')
+         - compare-versions(version, '7.x-1.2')
+         - compare-versions(version, '7.x-1.1')
+         - compare-versions(version, '7.x-1.0')

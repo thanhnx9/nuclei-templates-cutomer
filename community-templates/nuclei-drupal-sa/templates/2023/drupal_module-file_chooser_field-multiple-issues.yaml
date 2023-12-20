@@ -1,7 +1,7 @@
 
-id: drupal_module-file_chooser_field-multiple-issues
+id: drupal-module-file-chooser-field-multiple-issues
 info:
-  name: drupal_module-file_chooser_field-multiple-issues
+  name: drupal-module-file-chooser-field-multiple-issues
   author: Bishopfox
   severity: medium
   description: "The File Chooser Field allows users to upload files using 3rd party plugins such as Google Drive and Dropbox.  This module fails to validate user input sufficiently which could under certain circumstances lead to a Server Side Request Forgery (SSRF) vulnerability leading to Information Disclosure. In uncommon configurations and scenarios, it might lead to Remote Code Execution."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 14∕25 AC:Basic/A:User/CI:Some/II:None/E:Exploit/TD:All"
     vulnerability: "multiple-issues"
-    fofa-query: "/sites/all/modules/file_chooser_field/"
-    google-query: "inurl:'/sites/all/modules/file_chooser_field/"
+    fofa-query: "/sites/all/modules/file-chooser-field/"
+    google-query: "inurl:'/sites/all/modules/file-chooser-field/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/file_chooser_field/file_chooser_field.info"
+      - "{{BaseURL}}/sites/all/modules/file-chooser-field/file-chooser-field.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'file_chooser_field'
+          - 'file-chooser-field'
         part: body
 
     extractors:
@@ -48,16 +48,16 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-1.12')
-         - compare_versions(version, '7.x-1.11')
-         - compare_versions(version, '7.x-1.10')
-         - compare_versions(version, '7.x-1.9')
-         - compare_versions(version, '7.x-1.8')
-         - compare_versions(version, '7.x-1.7')
-         - compare_versions(version, '7.x-1.6')
-         - compare_versions(version, '7.x-1.5')
-         - compare_versions(version, '7.x-1.4')
-         - compare_versions(version, '7.x-1.3')
-         - compare_versions(version, '7.x-1.2')
-         - compare_versions(version, '7.x-1.1')
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '7.x-1.12')
+         - compare-versions(version, '7.x-1.11')
+         - compare-versions(version, '7.x-1.10')
+         - compare-versions(version, '7.x-1.9')
+         - compare-versions(version, '7.x-1.8')
+         - compare-versions(version, '7.x-1.7')
+         - compare-versions(version, '7.x-1.6')
+         - compare-versions(version, '7.x-1.5')
+         - compare-versions(version, '7.x-1.4')
+         - compare-versions(version, '7.x-1.3')
+         - compare-versions(version, '7.x-1.2')
+         - compare-versions(version, '7.x-1.1')
+         - compare-versions(version, '7.x-1.0')

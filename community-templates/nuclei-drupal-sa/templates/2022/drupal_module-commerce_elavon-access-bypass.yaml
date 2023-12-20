@@ -1,7 +1,7 @@
 
-id: drupal_module-commerce_elavon-access-bypass
+id: drupal-module-commerce-elavon-access-bypass
 info:
-  name: drupal_module-commerce_elavon-access-bypass
+  name: drupal-module-commerce-elavon-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to accept payments from the Elavon payment provider. The module doesnt sufficiently verify that its communicating with the correct server when using the Elavon (On-site) payment gateway, which could lead to leaking valid payment details as well as accepting invalid payment details. This vulnerability is mitigated by the fact that an attacker must be able to spoof the Elavon DNS received by your site."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 11∕25 AC:Complex/A:None/CI:None/II:Some/E:Theoretical/TD:Default"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/commerce_elavon/"
-    google-query: "inurl:'/sites/all/modules/commerce_elavon/"
+    fofa-query: "/sites/all/modules/commerce-elavon/"
+    google-query: "inurl:'/sites/all/modules/commerce-elavon/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/commerce_elavon/commerce_elavon.info"
+      - "{{BaseURL}}/sites/all/modules/commerce-elavon/commerce-elavon.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'commerce_elavon'
+          - 'commerce-elavon'
         part: body
 
     extractors:
@@ -48,13 +48,13 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-2.2')
-         - compare_versions(version, '8.x-2.1')
-         - compare_versions(version, '8.x-2.0')
-         - compare_versions(version, '8.x-2.0-beta2')
-         - compare_versions(version, '8.x-2.0-beta1')
-         - compare_versions(version, '7.x-1.4')
-         - compare_versions(version, '7.x-1.3')
-         - compare_versions(version, '7.x-1.2')
-         - compare_versions(version, '7.x-1.1')
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '8.x-2.2')
+         - compare-versions(version, '8.x-2.1')
+         - compare-versions(version, '8.x-2.0')
+         - compare-versions(version, '8.x-2.0-beta2')
+         - compare-versions(version, '8.x-2.0-beta1')
+         - compare-versions(version, '7.x-1.4')
+         - compare-versions(version, '7.x-1.3')
+         - compare-versions(version, '7.x-1.2')
+         - compare-versions(version, '7.x-1.1')
+         - compare-versions(version, '7.x-1.0')

@@ -1,7 +1,7 @@
 
-id: drupal_module-super_login-access-bypass
+id: drupal-module-super-login-access-bypass
 info:
-  name: drupal_module-super_login-access-bypass
+  name: drupal-module-super-login-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to login with an email address. The module doesnt sufficiently check if a user account is active when using email login. This vulnerability is mitigated by the fact that an attacker must have an account in the website that is blocked."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 18∕25 AC:None/A:None/CI:Some/II:Some/E:Theoretical/TD:All"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/super_login/"
-    google-query: "inurl:'/sites/all/modules/super_login/"
+    fofa-query: "/sites/all/modules/super-login/"
+    google-query: "inurl:'/sites/all/modules/super-login/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/super_login/super_login.info"
+      - "{{BaseURL}}/sites/all/modules/super-login/super-login.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'super_login'
+          - 'super-login'
         part: body
 
     extractors:
@@ -48,10 +48,10 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.6')
-         - compare_versions(version, '8.x-1.5')
-         - compare_versions(version, '8.x-1.4')
-         - compare_versions(version, '8.x-1.3')
-         - compare_versions(version, '8.x-1.2')
-         - compare_versions(version, '8.x-1.1')
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.6')
+         - compare-versions(version, '8.x-1.5')
+         - compare-versions(version, '8.x-1.4')
+         - compare-versions(version, '8.x-1.3')
+         - compare-versions(version, '8.x-1.2')
+         - compare-versions(version, '8.x-1.1')
+         - compare-versions(version, '8.x-1.0')

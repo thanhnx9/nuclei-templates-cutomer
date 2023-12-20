@@ -1,10 +1,10 @@
 
-id: drupal_module-dvg-access-bypass
+id: drupal-module-dvg-access-bypass
 info:
-  name: drupal_module-dvg-access-bypass
+  name: drupal-module-dvg-access-bypass
   author: Bishopfox
   severity: medium
-  description: "The DvG distrubition contains the feature module dvg_domains to support multiple domains.  When the dvg_domains feature module is enabled, anonymous users are able to access some administration pages and change the settings exposed on those pages. This issue can be mitigated by disabling the dvg_domains module."
+  description: "The DvG distrubition contains the feature module dvg-domains to support multiple domains.  When the dvg-domains feature module is enabled, anonymous users are able to access some administration pages and change the settings exposed on those pages. This issue can be mitigated by disabling the dvg-domains module."
   reference:
     - https://www.drupal.org/sa-contrib-2019-031
   metadata:
@@ -14,7 +14,7 @@ info:
     google-query: "inurl:'/sites/all/modules/dvg/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -48,10 +48,10 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-1.8')
-         - compare_versions(version, '7.x-1.7')
-         - compare_versions(version, '7.x-1.6')
-         - compare_versions(version, '7.x-1.3')
-         - compare_versions(version, '7.x-1.2')
-         - compare_versions(version, '7.x-1.1')
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '7.x-1.8')
+         - compare-versions(version, '7.x-1.7')
+         - compare-versions(version, '7.x-1.6')
+         - compare-versions(version, '7.x-1.3')
+         - compare-versions(version, '7.x-1.2')
+         - compare-versions(version, '7.x-1.1')
+         - compare-versions(version, '7.x-1.0')

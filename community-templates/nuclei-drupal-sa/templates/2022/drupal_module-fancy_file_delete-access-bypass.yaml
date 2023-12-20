@@ -1,7 +1,7 @@
 
-id: drupal_module-fancy_file_delete-access-bypass
+id: drupal-module-fancy-file-delete-access-bypass
 info:
-  name: drupal_module-fancy_file_delete-access-bypass
+  name: drupal-module-fancy-file-delete-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to manage and delete files. The module doesnt sufficiently protect unmanaged files from view under the scenario unauthenticated user knows path to visit the view and can attempt to delete files which results in duplicate files being created. To mitigate this issue without deploying code, review all views that are based on Fancy File Delete and ensure they have an access control set to use the permission administer unmanaged files entities."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 14∕25 AC:None/A:None/CI:Some/II:None/E:Theoretical/TD:Default"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/fancy_file_delete/"
-    google-query: "inurl:'/sites/all/modules/fancy_file_delete/"
+    fofa-query: "/sites/all/modules/fancy-file-delete/"
+    google-query: "inurl:'/sites/all/modules/fancy-file-delete/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/fancy_file_delete/fancy_file_delete.info"
+      - "{{BaseURL}}/sites/all/modules/fancy-file-delete/fancy-file-delete.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'fancy_file_delete'
+          - 'fancy-file-delete'
         part: body
 
     extractors:
@@ -48,10 +48,10 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '2.0.6')
-         - compare_versions(version, '2.0.5')
-         - compare_versions(version, '2.0.4')
-         - compare_versions(version, '2.0.3')
-         - compare_versions(version, '2.0.2')
-         - compare_versions(version, '2.0.1')
-         - compare_versions(version, '2.0.0')
+         - compare-versions(version, '2.0.6')
+         - compare-versions(version, '2.0.5')
+         - compare-versions(version, '2.0.4')
+         - compare-versions(version, '2.0.3')
+         - compare-versions(version, '2.0.2')
+         - compare-versions(version, '2.0.1')
+         - compare-versions(version, '2.0.0')

@@ -1,7 +1,7 @@
 
-id: drupal_module-create_user_permission-access-bypass
+id: drupal-module-create-user-permission-access-bypass
 info:
-  name: drupal_module-create_user_permission-access-bypass
+  name: drupal-module-create-user-permission-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to have a separate permission only for creating users. The module doesnt respect Drupals setting for Who can register accounts? when set to Visitors, but administrator approval is required. When this option is chosen, the module overrides the setting, and makes it possible to register accounts with no approval. This vulnerability can be mitigated by having other settings in place for account registration, such as requiring email verification for new accounts, or permitting account creation for Administrators only."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 15∕25 AC:Basic/A:None/CI:Some/II:Some/E:Theoretical/TD:Default"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/create_user_permission/"
-    google-query: "inurl:'/sites/all/modules/create_user_permission/"
+    fofa-query: "/sites/all/modules/create-user-permission/"
+    google-query: "inurl:'/sites/all/modules/create-user-permission/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/create_user_permission/create_user_permission.info"
+      - "{{BaseURL}}/sites/all/modules/create-user-permission/create-user-permission.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'create_user_permission'
+          - 'create-user-permission'
         part: body
 
     extractors:
@@ -48,5 +48,5 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.1')
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.1')
+         - compare-versions(version, '8.x-1.0')

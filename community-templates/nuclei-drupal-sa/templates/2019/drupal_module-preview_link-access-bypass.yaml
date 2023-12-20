@@ -1,7 +1,7 @@
 
-id: drupal_module-preview_link-access-bypass
+id: drupal-module-preview-link-access-bypass
 info:
-  name: drupal_module-preview_link-access-bypass
+  name: drupal-module-preview-link-access-bypass
   author: Bishopfox
   severity: medium
   description: "The Preview Link module enables you to generate preview links so anonymous users can access unpublished revisions of content. The last release of the module introduced an access bypass allowing users to present invalid tokens but still access unpublished content."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 13∕25 AC:Basic/A:None/CI:Some/II:None/E:Theoretical/TD:All"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/preview_link/"
-    google-query: "inurl:'/sites/all/modules/preview_link/"
+    fofa-query: "/sites/all/modules/preview-link/"
+    google-query: "inurl:'/sites/all/modules/preview-link/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/preview_link/preview_link.info"
+      - "{{BaseURL}}/sites/all/modules/preview-link/preview-link.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'preview_link'
+          - 'preview-link'
         part: body
 
     extractors:
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.0')

@@ -1,7 +1,7 @@
 
-id: drupal_module-imagecache_external-insecure-session-token-management
+id: drupal-module-imagecache-external-insecure-session-token-management
 info:
-  name: drupal_module-imagecache_external-insecure-session-token-management
+  name: drupal-module-imagecache-external-insecure-session-token-management
   author: Bishopfox
   severity: medium
   description: "This module that allows you to store external images on your server and apply your own Image Styles. The module exposes cookies to external sites when making external image requests. This vulnerability is mitigated by using the whitelisted host feature to restrict external image requests from trusted sources."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 15∕25 AC:Complex/A:None/CI:Some/II:Some/E:Theoretical/TD:All"
     vulnerability: "insecure-session-token-management"
-    fofa-query: "/sites/all/modules/imagecache_external/"
-    google-query: "inurl:'/sites/all/modules/imagecache_external/"
+    fofa-query: "/sites/all/modules/imagecache-external/"
+    google-query: "inurl:'/sites/all/modules/imagecache-external/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/imagecache_external/imagecache_external.info"
+      - "{{BaseURL}}/sites/all/modules/imagecache-external/imagecache-external.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'imagecache_external'
+          - 'imagecache-external'
         part: body
 
     extractors:
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.0')

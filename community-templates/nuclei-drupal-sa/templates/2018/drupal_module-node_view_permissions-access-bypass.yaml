@@ -1,7 +1,7 @@
 
-id: drupal_module-node_view_permissions-access-bypass
+id: drupal-module-node-view-permissions-access-bypass
 info:
-  name: drupal_module-node_view_permissions-access-bypass
+  name: drupal-module-node-view-permissions-access-bypass
   author: Bishopfox
   severity: medium
   description: "The Node view permissions module enables the View own content and View any content permissions for each content type on the permissions page. This module has a vulnerability that allows users with these permissions to view unpublished content that they are not otherwise authorized to view.  This issue was fixed by the maintainer outside of the normal security team protocols. Some issues were patched in 2014 for the 7.x version of this module.  The 8.x release was updated within the last 6 months. Both are now flagged as security updates."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 14∕25 AC:None/A:None/CI:Some/II:None/E:Theoretical/TD:Default"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/node_view_permissions/"
-    google-query: "inurl:'/sites/all/modules/node_view_permissions/"
+    fofa-query: "/sites/all/modules/node-view-permissions/"
+    google-query: "inurl:'/sites/all/modules/node-view-permissions/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/node_view_permissions/node_view_permissions.info"
+      - "{{BaseURL}}/sites/all/modules/node-view-permissions/node-view-permissions.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'node_view_permissions'
+          - 'node-view-permissions'
         part: body
 
     extractors:
@@ -48,9 +48,9 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.0')
-         - compare_versions(version, '7.x-1.4')
-         - compare_versions(version, '7.x-1.3')
-         - compare_versions(version, '7.x-1.2')
-         - compare_versions(version, '7.x-1.1')
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '8.x-1.0')
+         - compare-versions(version, '7.x-1.4')
+         - compare-versions(version, '7.x-1.3')
+         - compare-versions(version, '7.x-1.2')
+         - compare-versions(version, '7.x-1.1')
+         - compare-versions(version, '7.x-1.0')

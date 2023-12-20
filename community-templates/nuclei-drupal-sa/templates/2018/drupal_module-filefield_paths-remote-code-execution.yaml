@@ -1,7 +1,7 @@
 
-id: drupal_module-filefield_paths-remote-code-execution
+id: drupal-module-filefield-paths-remote-code-execution
 info:
-  name: drupal_module-filefield_paths-remote-code-execution
+  name: drupal-module-filefield-paths-remote-code-execution
   author: Bishopfox
   severity: medium
   description: "This module enables you to automatically sort and rename your uploaded files using token based replacement patterns to maintain a nice clean filesystem. The module doesnt sufficiently sanitize the path while a new file is uploading, allowing a remote attacker to execute arbitrary PHP code. This vulnerability is mitigated by the fact that an attacker must have access to a form containing a widget processed by this module."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 15∕25 AC:Basic/A:User/CI:Some/II:All/E:Theoretical/TD:Default"
     vulnerability: "remote-code-execution"
-    fofa-query: "/sites/all/modules/filefield_paths/"
-    google-query: "inurl:'/sites/all/modules/filefield_paths/"
+    fofa-query: "/sites/all/modules/filefield-paths/"
+    google-query: "inurl:'/sites/all/modules/filefield-paths/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/filefield_paths/filefield_paths.info"
+      - "{{BaseURL}}/sites/all/modules/filefield-paths/filefield-paths.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'filefield_paths'
+          - 'filefield-paths'
         part: body
 
     extractors:
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '7.x-1.0')

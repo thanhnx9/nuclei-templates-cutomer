@@ -1,7 +1,7 @@
 
-id: drupal_module-existing_values_autocomplete_widget-access-bypass
+id: drupal-module-existing-values-autocomplete-widget-access-bypass
 info:
-  name: drupal_module-existing_values_autocomplete_widget-access-bypass
+  name: drupal-module-existing-values-autocomplete-widget-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module provides an autocomplete widget for text fields that suggests all existing (previously entered) values for that field. The module doesnt sufficiently check for proper access permission before returning autocomplete results. This vulnerability is mitigated by the fact that an attacker must know the route to the autocomplete callback controller though this is easily known."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 17∕25 AC:None/A:None/CI:All/II:None/E:Theoretical/TD:All"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/existing_values_autocomplete_widget/"
-    google-query: "inurl:'/sites/all/modules/existing_values_autocomplete_widget/"
+    fofa-query: "/sites/all/modules/existing-values-autocomplete-widget/"
+    google-query: "inurl:'/sites/all/modules/existing-values-autocomplete-widget/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/existing_values_autocomplete_widget/existing_values_autocomplete_widget.info"
+      - "{{BaseURL}}/sites/all/modules/existing-values-autocomplete-widget/existing-values-autocomplete-widget.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'existing_values_autocomplete_widget'
+          - 'existing-values-autocomplete-widget'
         part: body
 
     extractors:
@@ -48,5 +48,5 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.1')
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.1')
+         - compare-versions(version, '8.x-1.0')

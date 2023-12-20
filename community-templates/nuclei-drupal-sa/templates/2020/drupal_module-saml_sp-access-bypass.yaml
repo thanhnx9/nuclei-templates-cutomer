@@ -1,7 +1,7 @@
 
-id: drupal_module-saml_sp-access-bypass
+id: drupal-module-saml-sp-access-bypass
 info:
-  name: drupal_module-saml_sp-access-bypass
+  name: drupal-module-saml-sp-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to authenticate Drupal users using an external SAML Identity Provider.  If the site is configured to allow visitors to register for user accounts but administrator approval is required, the module doesnt sufficiently enforce the administrative approval requirement, in the case where the requesting user has already authenticated through SAML. This vulnerability is mitigated by the fact that user accounts created in this way have only default roles, which may not have access significantly beyond that of an anonymous user. To mitigate the vulnerability without upgrading sites could disable public registration."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 15∕25 AC:Basic/A:None/CI:Some/II:Some/E:Theoretical/TD:Default"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/saml_sp/"
-    google-query: "inurl:'/sites/all/modules/saml_sp/"
+    fofa-query: "/sites/all/modules/saml-sp/"
+    google-query: "inurl:'/sites/all/modules/saml-sp/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/saml_sp/saml_sp.info"
+      - "{{BaseURL}}/sites/all/modules/saml-sp/saml-sp.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'saml_sp'
+          - 'saml-sp'
         part: body
 
     extractors:
@@ -48,9 +48,9 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-3.7')
-         - compare_versions(version, '8.x-3.5')
-         - compare_versions(version, '8.x-3.4')
-         - compare_versions(version, '8.x-3.3')
-         - compare_versions(version, '8.x-3.2')
-         - compare_versions(version, '8.x-3.1')
+         - compare-versions(version, '8.x-3.7')
+         - compare-versions(version, '8.x-3.5')
+         - compare-versions(version, '8.x-3.4')
+         - compare-versions(version, '8.x-3.3')
+         - compare-versions(version, '8.x-3.2')
+         - compare-versions(version, '8.x-3.1')

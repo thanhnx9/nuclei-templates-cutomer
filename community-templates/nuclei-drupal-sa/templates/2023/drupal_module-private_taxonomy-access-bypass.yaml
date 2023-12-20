@@ -1,7 +1,7 @@
 
-id: drupal_module-private_taxonomy-access-bypass
+id: drupal-module-private-taxonomy-access-bypass
 info:
-  name: drupal_module-private_taxonomy-access-bypass
+  name: drupal-module-private-taxonomy-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables users to create private vocabularies. The module doesnt enforce permissions appropriately for the taxonomy overview page and overview form. This vulnerability is mitigated by the fact that an attacker must have a role with the permission Administer own taxonomy or View private taxonomies"
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 10∕25 AC:Basic/A:User/CI:Some/II:None/E:Theoretical/TD:Default"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/private_taxonomy/"
-    google-query: "inurl:'/sites/all/modules/private_taxonomy/"
+    fofa-query: "/sites/all/modules/private-taxonomy/"
+    google-query: "inurl:'/sites/all/modules/private-taxonomy/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/private_taxonomy/private_taxonomy.info"
+      - "{{BaseURL}}/sites/all/modules/private-taxonomy/private-taxonomy.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'private_taxonomy'
+          - 'private-taxonomy'
         part: body
 
     extractors:
@@ -48,9 +48,9 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-2.5')
-         - compare_versions(version, '8.x-2.4')
-         - compare_versions(version, '8.x-2.3')
-         - compare_versions(version, '8.x-2.2')
-         - compare_versions(version, '8.x-2.1')
-         - compare_versions(version, '8.x-2.0')
+         - compare-versions(version, '8.x-2.5')
+         - compare-versions(version, '8.x-2.4')
+         - compare-versions(version, '8.x-2.3')
+         - compare-versions(version, '8.x-2.2')
+         - compare-versions(version, '8.x-2.1')
+         - compare-versions(version, '8.x-2.0')

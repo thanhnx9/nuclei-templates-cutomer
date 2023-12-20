@@ -1,7 +1,7 @@
 
-id: drupal_module-media_responsive_thumbnail-information-disclosure
+id: drupal-module-media-responsive-thumbnail-information-disclosure
 info:
-  name: drupal_module-media_responsive_thumbnail-information-disclosure
+  name: drupal-module-media-responsive-thumbnail-information-disclosure
   author: Bishopfox
   severity: medium
   description: "The Media Responsive Thumbnail module allows media reference fields to be rendered as a responsive image. This module does not properly check entity access prior to rendering media. This may result in users seeing thumbnails of media items they do not have access to. This release was coordinated with SA-CORE-2023-002."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 14∕25 AC:None/A:None/CI:Some/II:None/E:Theoretical/TD:Default"
     vulnerability: "information-disclosure"
-    fofa-query: "/sites/all/modules/media_responsive_thumbnail/"
-    google-query: "inurl:'/sites/all/modules/media_responsive_thumbnail/"
+    fofa-query: "/sites/all/modules/media-responsive-thumbnail/"
+    google-query: "inurl:'/sites/all/modules/media-responsive-thumbnail/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/media_responsive_thumbnail/media_responsive_thumbnail.info"
+      - "{{BaseURL}}/sites/all/modules/media-responsive-thumbnail/media-responsive-thumbnail.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'media_responsive_thumbnail'
+          - 'media-responsive-thumbnail'
         part: body
 
     extractors:
@@ -48,8 +48,8 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.4')
-         - compare_versions(version, '8.x-1.3')
-         - compare_versions(version, '8.x-1.2')
-         - compare_versions(version, '8.x-1.1')
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.4')
+         - compare-versions(version, '8.x-1.3')
+         - compare-versions(version, '8.x-1.2')
+         - compare-versions(version, '8.x-1.1')
+         - compare-versions(version, '8.x-1.0')

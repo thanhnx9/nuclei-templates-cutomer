@@ -1,7 +1,7 @@
 
-id: drupal_module-panels_breadcrumbs-cross-site-scripting
+id: drupal-module-panels-breadcrumbs-cross-site-scripting
 info:
-  name: drupal_module-panels_breadcrumbs-cross-site-scripting
+  name: drupal-module-panels-breadcrumbs-cross-site-scripting
   author: Bishopfox
   severity: medium
   description: "Panels Breadcrumbs allows you to set your breadcrumbs directly from Panels configuration.  This module doesnt properly sanitize custom breadcrumb configuration in all cases, leading to an XSS vulnerability. This vulnerability is mitigated by the fact that an attacker must have permission to edit breadcrumb configuration, or the value of a token used in breadcrumb configuration."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 14∕25 AC:Basic/A:User/CI:Some/II:Some/E:Theoretical/TD:All"
     vulnerability: "cross-site-scripting"
-    fofa-query: "/sites/all/modules/panels_breadcrumbs/"
-    google-query: "inurl:'/sites/all/modules/panels_breadcrumbs/"
+    fofa-query: "/sites/all/modules/panels-breadcrumbs/"
+    google-query: "inurl:'/sites/all/modules/panels-breadcrumbs/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/panels_breadcrumbs/panels_breadcrumbs.info"
+      - "{{BaseURL}}/sites/all/modules/panels-breadcrumbs/panels-breadcrumbs.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'panels_breadcrumbs'
+          - 'panels-breadcrumbs'
         part: body
 
     extractors:
@@ -48,7 +48,7 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-2.3')
-         - compare_versions(version, '7.x-2.2')
-         - compare_versions(version, '7.x-2.1')
-         - compare_versions(version, '7.x-2.0')
+         - compare-versions(version, '7.x-2.3')
+         - compare-versions(version, '7.x-2.2')
+         - compare-versions(version, '7.x-2.1')
+         - compare-versions(version, '7.x-2.0')

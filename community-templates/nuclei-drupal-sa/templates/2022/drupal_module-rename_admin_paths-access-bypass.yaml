@@ -1,7 +1,7 @@
 
-id: drupal_module-rename_admin_paths-access-bypass
+id: drupal-module-rename-admin-paths-access-bypass
 info:
-  name: drupal_module-rename_admin_paths-access-bypass
+  name: drupal-module-rename-admin-paths-access-bypass
   author: Bishopfox
   severity: medium
   description: "The Rename Admin Path module provides additional security to Drupal sites by renaming the admin paths. The module has a vulnerability with allows attackers to bypass the protection by using specially crafted URLs. The risk is mitigated by the fact that, even though the attacker can bypass the protection offered by this module, all regular permissions still apply."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 10∕25 AC:Basic/A:None/CI:None/II:None/E:Theoretical/TD:All"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/rename_admin_paths/"
-    google-query: "inurl:'/sites/all/modules/rename_admin_paths/"
+    fofa-query: "/sites/all/modules/rename-admin-paths/"
+    google-query: "inurl:'/sites/all/modules/rename-admin-paths/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/rename_admin_paths/rename_admin_paths.info"
+      - "{{BaseURL}}/sites/all/modules/rename-admin-paths/rename-admin-paths.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'rename_admin_paths'
+          - 'rename-admin-paths'
         part: body
 
     extractors:
@@ -48,7 +48,7 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-2.3')
-         - compare_versions(version, '7.x-2.2')
-         - compare_versions(version, '7.x-2.1')
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '7.x-2.3')
+         - compare-versions(version, '7.x-2.2')
+         - compare-versions(version, '7.x-2.1')
+         - compare-versions(version, '7.x-1.0')

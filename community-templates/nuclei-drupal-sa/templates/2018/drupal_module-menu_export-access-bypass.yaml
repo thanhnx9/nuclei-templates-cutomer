@@ -1,7 +1,7 @@
 
-id: drupal_module-menu_export-access-bypass
+id: drupal-module-menu-export-access-bypass
 info:
-  name: drupal_module-menu_export-access-bypass
+  name: drupal-module-menu-export-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module helps in exporting and importing Menu Items via the administrative interface. The module does not properly restrict access to administrative pages, allowing anonymous users to export and import menu links. There is no mitigation for this vulnerability."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 17∕25 AC:Basic/A:None/CI:Some/II:Some/E:Exploit/TD:Uncommon"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/menu_export/"
-    google-query: "inurl:'/sites/all/modules/menu_export/"
+    fofa-query: "/sites/all/modules/menu-export/"
+    google-query: "inurl:'/sites/all/modules/menu-export/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/menu_export/menu_export.info"
+      - "{{BaseURL}}/sites/all/modules/menu-export/menu-export.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'menu_export'
+          - 'menu-export'
         part: body
 
     extractors:
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.0')

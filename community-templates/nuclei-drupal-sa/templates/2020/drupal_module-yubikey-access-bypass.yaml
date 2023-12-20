@@ -1,7 +1,7 @@
 
-id: drupal_module-yubikey-access-bypass
+id: drupal-module-yubikey-access-bypass
 info:
-  name: drupal_module-yubikey-access-bypass
+  name: drupal-module-yubikey-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to use a Yubikey device to protect your Drupal user account. YubiKey is a secure method for logging into many websites using a cryptographically secure USB token. The module doesnt sufficiently implement login flood control when the module is configured for YubiKey OTP only. This allows an attacker to attempt many YubiKey OTP codes. However, a brute force attack on this code is not practical in most situations given the length and randomness of the OTP codes."
@@ -14,7 +14,7 @@ info:
     google-query: "inurl:'/sites/all/modules/yubikey/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -48,6 +48,6 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-2.2')
-         - compare_versions(version, '7.x-2.1')
-         - compare_versions(version, '7.x-2.0')
+         - compare-versions(version, '7.x-2.2')
+         - compare-versions(version, '7.x-2.1')
+         - compare-versions(version, '7.x-2.0')

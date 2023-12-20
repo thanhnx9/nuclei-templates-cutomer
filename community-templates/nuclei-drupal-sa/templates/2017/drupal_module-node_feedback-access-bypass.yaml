@@ -1,7 +1,7 @@
 
-id: drupal_module-node_feedback-access-bypass
+id: drupal-module-node-feedback-access-bypass
 info:
-  name: drupal_module-node_feedback-access-bypass
+  name: drupal-module-node-feedback-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to set nodes to send feedbacks by personal/site wide contact forms. The module doesnt sufficiently handle the access to nodes whose titles will be shown on contact forms. This vulnerability is mitigated by the fact that an attacker must have a role with the permission Use the site-wide contact form or Use users personal contact forms which is often assigned to untrusted user roles such as anonymous."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Moderately critical 12∕25 AC:None/A:User/CI:Some/II:None/E:Theoretical/TD:Default"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/node_feedback/"
-    google-query: "inurl:'/sites/all/modules/node_feedback/"
+    fofa-query: "/sites/all/modules/node-feedback/"
+    google-query: "inurl:'/sites/all/modules/node-feedback/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/node_feedback/node_feedback.info"
+      - "{{BaseURL}}/sites/all/modules/node-feedback/node-feedback.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'node_feedback'
+          - 'node-feedback'
         part: body
 
     extractors:
@@ -48,5 +48,5 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '7.x-1.2')
-         - compare_versions(version, '7.x-1.0')
+         - compare-versions(version, '7.x-1.2')
+         - compare-versions(version, '7.x-1.0')

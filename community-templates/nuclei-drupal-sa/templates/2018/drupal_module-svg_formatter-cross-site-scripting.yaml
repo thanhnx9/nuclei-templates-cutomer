@@ -1,7 +1,7 @@
 
-id: drupal_module-svg_formatter-cross-site-scripting
+id: drupal-module-svg-formatter-cross-site-scripting
 info:
-  name: drupal_module-svg_formatter-cross-site-scripting
+  name: drupal-module-svg-formatter-cross-site-scripting
   author: Bishopfox
   severity: medium
   description: "This module adds a new formatter for the file fields, which allows any file extension to be uploaded. The module doesnt sufficiently handle sanitization under the scenario uploaded SVG files. This vulnerability is mitigated by the fact that an attacker must have a role with the permission create or edit on certain content types that allows SVG files to be uploaded."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Critical 15∕25 AC:Basic/A:User/CI:Some/II:Some/E:Proof/TD:All"
     vulnerability: "cross-site-scripting"
-    fofa-query: "/sites/all/modules/svg_formatter/"
-    google-query: "inurl:'/sites/all/modules/svg_formatter/"
+    fofa-query: "/sites/all/modules/svg-formatter/"
+    google-query: "inurl:'/sites/all/modules/svg-formatter/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/svg_formatter/svg_formatter.info"
+      - "{{BaseURL}}/sites/all/modules/svg-formatter/svg-formatter.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'svg_formatter'
+          - 'svg-formatter'
         part: body
 
     extractors:
@@ -48,9 +48,9 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.05')
-         - compare_versions(version, '8.x-1.04')
-         - compare_versions(version, '8.x-1.03')
-         - compare_versions(version, '8.x-1.02')
-         - compare_versions(version, '8.x-1.01')
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.05')
+         - compare-versions(version, '8.x-1.04')
+         - compare-versions(version, '8.x-1.03')
+         - compare-versions(version, '8.x-1.02')
+         - compare-versions(version, '8.x-1.01')
+         - compare-versions(version, '8.x-1.0')

@@ -1,7 +1,7 @@
 
-id: drupal_module-opigno_forum-access-bypass
+id: drupal-module-opigno-forum-access-bypass
 info:
-  name: drupal_module-opigno_forum-access-bypass
+  name: drupal-module-opigno-forum-access-bypass
   author: Bishopfox
   severity: medium
   description: "In certain circumstances it is possible that certain forum information is available to unprivileged users because the access check is done with node access instead of grants. This vulnerability is mitigated by the fact that the module itself does not disclose information but only if there are listings such as views where the site builder / developer has not taken this into account."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Less critical 9∕25 AC:Basic/A:User/CI:Some/II:None/E:Theoretical/TD:Uncommon"
     vulnerability: "access-bypass"
-    fofa-query: "/sites/all/modules/opigno_forum/"
-    google-query: "inurl:'/sites/all/modules/opigno_forum/"
+    fofa-query: "/sites/all/modules/opigno-forum/"
+    google-query: "inurl:'/sites/all/modules/opigno-forum/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/opigno_forum/opigno_forum.info"
+      - "{{BaseURL}}/sites/all/modules/opigno-forum/opigno-forum.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'opigno_forum'
+          - 'opigno-forum'
         part: body
 
     extractors:
@@ -48,5 +48,5 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.1')
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.1')
+         - compare-versions(version, '8.x-1.0')
