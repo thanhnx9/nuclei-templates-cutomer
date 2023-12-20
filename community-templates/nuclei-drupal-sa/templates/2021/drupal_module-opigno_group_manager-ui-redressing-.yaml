@@ -1,7 +1,7 @@
 
-id: drupal_module-opigno_group_manager-ui-redressing-
+id: drupal-module-opigno-group-manager-ui-redressing-
 info:
-  name: drupal_module-opigno_group_manager-ui-redressing-
+  name: drupal-module-opigno-group-manager-ui-redressing-
   author: Bishopfox
   severity: medium
   description: "This project is related to Opigno LMS distribution. It implements the group manager in the Opigno LMS.  The module does not set X-Frame-Options and blocks ability of other modules (e.g Security Kit) to add them, leaving it vulnerable to Clickjacking."
@@ -10,11 +10,11 @@ info:
   metadata:
     security-risk: "Less critical 9∕25 AC:Complex/A:None/CI:None/II:None/E:Theoretical/TD:All"
     vulnerability: "ui-redressing-"
-    fofa-query: "/sites/all/modules/opigno_group_manager/"
-    google-query: "inurl:'/sites/all/modules/opigno_group_manager/"
+    fofa-query: "/sites/all/modules/opigno-group-manager/"
+    google-query: "inurl:'/sites/all/modules/opigno-group-manager/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -22,7 +22,7 @@ http:
     redirects: true
     max-redirects: 3
     path:
-      - "{{BaseURL}}/sites/all/modules/opigno_group_manager/opigno_group_manager.info"
+      - "{{BaseURL}}/sites/all/modules/opigno-group-manager/opigno-group-manager.info"
 
     matchers-condition: and
     matchers:
@@ -35,7 +35,7 @@ http:
           - 200
       - type: word
         words:
-          - 'opigno_group_manager'
+          - 'opigno-group-manager'
         part: body
 
     extractors:
@@ -48,11 +48,11 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '8.x-1.7')
-         - compare_versions(version, '8.x-1.6')
-         - compare_versions(version, '8.x-1.5')
-         - compare_versions(version, '8.x-1.4')
-         - compare_versions(version, '8.x-1.3')
-         - compare_versions(version, '8.x-1.2')
-         - compare_versions(version, '8.x-1.1')
-         - compare_versions(version, '8.x-1.0')
+         - compare-versions(version, '8.x-1.7')
+         - compare-versions(version, '8.x-1.6')
+         - compare-versions(version, '8.x-1.5')
+         - compare-versions(version, '8.x-1.4')
+         - compare-versions(version, '8.x-1.3')
+         - compare-versions(version, '8.x-1.2')
+         - compare-versions(version, '8.x-1.1')
+         - compare-versions(version, '8.x-1.0')

@@ -1,7 +1,7 @@
 
-id: drupal_module-ds-cross-site-scripting-
+id: drupal-module-ds-cross-site-scripting
 info:
-  name: drupal_module-ds-cross-site-scripting-
+  name: drupal_module-ds-cross-site-scripting
   author: Bishopfox
   severity: medium
   description: "Display Suite allows you to take full control over how your content is displayed using a drag and drop interface.  The module doesnt sufficiently validate view modes provided dynamically via URLs leading to a reflected cross site scripting (XSS) attack. This vulnerability is mitigated only by the fact that most modern browsers protect against reflected XSS via the url."

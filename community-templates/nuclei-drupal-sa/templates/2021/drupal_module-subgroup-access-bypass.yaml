@@ -1,7 +1,7 @@
 
-id: drupal_module-subgroup-access-bypass
+id: drupal-module-subgroup-access-bypass
 info:
-  name: drupal_module-subgroup-access-bypass
+  name: drupal-module-subgroup-access-bypass
   author: Bishopfox
   severity: medium
   description: "This module enables you to add groups to other groups in a tree structure where access can be inherited up or down the tree. When you configure Subgroup to have a tree with at least three levels, users may inadvertently get permissions in a group that is an uncle or cousin of the source group, rather than a direct ancestor or descendant. Trees with only multiple nodes at the lowest tier (or nowhere) are unaffected."
@@ -14,7 +14,7 @@ info:
     google-query: "inurl:'/sites/all/modules/subgroup/"
     impact: medium
     type: indicator
-    created_at: '0001-01-01T00:00:00Z'
+    created-at: '0001-01-01T00:00:00Z'
   tags: drupal
 
 http:
@@ -48,4 +48,4 @@ http:
 
       - type: dsl
         dsl:
-         - compare_versions(version, '1.0.0')
+         - compare-versions(version, '1.0.0')
